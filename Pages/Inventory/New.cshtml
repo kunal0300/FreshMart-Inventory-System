@@ -1,0 +1,37 @@
+@page
+@model FreshMartPortal.Pages.Inventory.NewModel
+@{
+    ViewData["Title"] = "Add Product";
+}
+
+<h1>Add New Product</h1>
+
+<form method="post" class="form-box">
+
+    <label>Product Title</label>
+    <input asp-for="Entry.ItemTitle" />
+
+    <label>Barcode</label>
+    <input asp-for="Entry.Barcode" />
+
+    <label>Brand / Supplier</label>
+    <input asp-for="Entry.BrandOrSupplier" />
+
+    <label>Category</label>
+    <input asp-for="Entry.Department" />
+
+    <label>Expiry / Restock Date</label>
+    <input asp-for="Entry.ExpiryOrRestockDate" type="date" />
+
+    <label>Price</label>
+    <input asp-for="Entry.UnitCost" />
+
+    <label>Quantity</label>
+    <input asp-for="Entry.UnitsAvailable" />
+
+    <label>Low Stock Alert</label>
+    <input asp-for="Entry.ReorderPoint" />
+
+    <br />
+    <button class="btn" type="submit">Save Product</button>
+</form>

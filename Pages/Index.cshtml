@@ -1,0 +1,68 @@
+@page
+@model FreshMartPortal.Pages.IndexModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FreshMart Portal</title>
+</head>
+<body style="margin:0;font-family:Arial;background:linear-gradient(135deg,#092635,#1b4242,#5c8374);min-height:100vh;display:flex;align-items:center;justify-content:center;">
+
+    <div style="width:1100px;background:white;border-radius:32px;padding:45px;display:grid;grid-template-columns:1.2fr .8fr;gap:35px;box-shadow:0 30px 80px rgba(0,0,0,.3);">
+
+        <div>
+            <div style="font-size:60px;">🛒</div>
+            <h1 style="font-size:48px;color:#092635;margin-bottom:10px;">FreshMart Portal</h1>
+            <p style="font-size:20px;color:#667085;">Supermarket Management Dashboard</p>
+
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;">
+                <div style="background:#f1f5f4;padding:25px;border-radius:20px;">
+                    <h3>Inventory</h3>
+                    <p>Manage products and stock levels</p>
+                </div>
+
+                <div style="background:#f1f5f4;padding:25px;border-radius:20px;">
+                    <h3>Sales</h3>
+                    <p>Record supermarket sales</p>
+                </div>
+
+                <div style="background:#f1f5f4;padding:25px;border-radius:20px;">
+                    <h3>Reports</h3>
+                    <p>View low stock and summaries</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="background:#f8faf9;border-radius:25px;padding:35px;">
+            <h2 style="color:#092635;">Admin Login</h2>
+            <p style="color:#667085;">Enter credentials to access features</p>
+
+            @if (!string.IsNullOrWhiteSpace(Model.ErrorMessage))
+            {
+                <div style="background:#fee4e2;color:#b42318;padding:12px;border-radius:10px;margin-bottom:15px;">
+                    @Model.ErrorMessage
+                </div>
+            }
+
+            <form method="post">
+                <label style="font-weight:bold;">Username</label>
+                <input asp-for="Username" style="width:100%;padding:14px;margin:8px 0 18px;border:1px solid #ddd;border-radius:12px;" />
+
+                <label style="font-weight:bold;">Password</label>
+                <input asp-for="Password" type="password" style="width:100%;padding:14px;margin:8px 0 22px;border:1px solid #ddd;border-radius:12px;" />
+
+                <button type="submit" style="width:100%;padding:15px;background:#092635;color:white;border:none;border-radius:12px;font-size:16px;font-weight:bold;">
+                    Login
+                </button>
+            </form>
+
+            <p style="margin-top:18px;color:#667085;">Demo: admin / admin123</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

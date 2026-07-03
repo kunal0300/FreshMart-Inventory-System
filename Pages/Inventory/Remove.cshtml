@@ -1,0 +1,22 @@
+@page "{id:int}"
+@model FreshMartPortal.Pages.Inventory.RemoveModel
+@{
+    ViewData["Title"] = "Remove Product";
+}
+
+<h1>Remove Product</h1>
+
+<div class="panel">
+    <p>Are you sure you want to remove this product?</p>
+
+    <h2>@Model.Entry.ItemTitle</h2>
+    <p>Brand/Supplier: @Model.Entry.BrandOrSupplier</p>
+    <p>Category: @Model.Entry.Department</p>
+    <p>Quantity: @Model.Entry.UnitsAvailable</p>
+
+    <form method="post">
+        <input type="hidden" asp-for="Entry.StockItemId" />
+        <button class="btn danger" type="submit">Yes, Remove</button>
+        <a class="btn alt" asp-page="/Inventory/List">Cancel</a>
+    </form>
+</div>

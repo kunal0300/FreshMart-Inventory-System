@@ -1,0 +1,40 @@
+﻿@page
+@model FreshMartPortal.Pages.ProductSearchModel
+@{
+    ViewData["Title"] = "Search Products";
+}
+
+<h1>Search Results</h1>
+
+@if (!string.IsNullOrWhiteSpace(Model.Message))
+{
+    <div class="panel">
+        <h3>@Model.Message</h3>
+    </div>
+}
+
+@if (Model.Results.Any())
+{
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Product</th>
+            <th>Barcode</th>
+            <th>Supplier</th>
+            <th>Category</th>
+            <th>Stock</th>
+        </tr>
+
+        @foreach (var item in Model.Results)
+        {
+            <tr>
+                <td>@item.StockItemId</td>
+                <td>@item.ItemTitle</td>
+                <td>@item.Barcode</td>
+                <td>@item.BrandOrSupplier</td>
+                <td>@item.Department</td>
+                <td>@item.UnitsAvailable</td>
+            </tr>
+        }
+    </table>
+}

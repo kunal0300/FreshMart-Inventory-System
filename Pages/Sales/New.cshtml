@@ -1,0 +1,28 @@
+@page
+@model FreshMartPortal.Pages.Sales.NewModel
+@{
+    ViewData["Title"] = "Record Sale";
+}
+
+<h1>Record Sale</h1>
+
+<form method="post">
+    <div class="mb-3">
+        <label>Choose Product</label>
+        <select asp-for="Sale.StockItemId" class="form-control">
+            @foreach (var item in Model.Items)
+            {
+                <option value="@item.StockItemId">
+                    @item.ItemTitle - £@item.UnitCost - Stock: @item.UnitsAvailable
+                </option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>Quantity Sold</label>
+        <input asp-for="Sale.QuantitySold" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Save Sale</button>
+</form>

@@ -1,0 +1,30 @@
+@page
+@model FreshMartPortal.Pages.Vendors.NewModel
+@{
+    ViewData["Title"] = "Add Supplier";
+}
+
+<h1>Add Supplier</h1>
+
+<form method="post" class="form-box">
+
+    <label>Supplier Name</label>
+    <input asp-for="Vendor.VendorName" />
+
+    <label>Contact Person</label>
+    <input asp-for="Vendor.ContactPerson" />
+
+    <label>Phone Number</label>
+    <input asp-for="Vendor.PhoneNumber" />
+
+    <label>Email Address</label>
+    <input asp-for="Vendor.EmailAddress" />
+
+    <label>Supply Category</label>
+    <input asp-for="Vendor.SupplyCategory" />
+
+    <br />
+    <button class="btn" type="submit">Save Supplier</button>
+    <a class="btn alt" href="/Vendors/List">Cancel</a>
+
+</form>

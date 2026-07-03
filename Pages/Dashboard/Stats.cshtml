@@ -1,0 +1,52 @@
+@page
+@model FreshMartPortal.Pages.Dashboard.StatsModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h1>Dashboard</h1>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <span>Total Products</span>
+        <strong>@Model.TotalProducts</strong>
+    </div>
+
+    <div class="stat-card">
+        <span>Total Stock</span>
+        <strong>@Model.TotalStock</strong>
+    </div>
+
+    <div class="stat-card alert">
+        <span>Low Stock</span>
+        <strong>@Model.LowStock</strong>
+    </div>
+
+    <div class="stat-card">
+        <span>Sales Records</span>
+        <strong>@Model.TotalSales</strong>
+    </div>
+</div>
+
+<div class="panel">
+    <h2>Low Stock Alerts</h2>
+
+    <table>
+        <tr>
+            <th>Product</th>
+            <th>Category</th>
+            <th>Stock</th>
+            <th>Reorder Point</th>
+        </tr>
+
+        @foreach (var item in Model.LowStockItems)
+        {
+            <tr>
+                <td>@item.ItemTitle</td>
+                <td>@item.Department</td>
+                <td>@item.UnitsAvailable</td>
+                <td>@item.ReorderPoint</td>
+            </tr>
+        }
+    </table>
+</div>

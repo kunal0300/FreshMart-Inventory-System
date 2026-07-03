@@ -1,0 +1,63 @@
+﻿@page
+@model FreshMartPortal.Pages.LoginModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FreshMart Login</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body class="fm-login-body">
+
+    <div class="fm-login-shell">
+
+        <div class="fm-login-left">
+            <div class="fm-logo">🛒</div>
+            <h1>FreshMart Portal</h1>
+            <p>Supermarket Management System</p>
+
+            <div class="fm-mini-dashboard">
+                <div>
+                    <span>Products</span>
+                    <strong>Inventory</strong>
+                </div>
+                <div>
+                    <span>Stock</span>
+                    <strong>Live Alerts</strong>
+                </div>
+                <div>
+                    <span>Sales</span>
+                    <strong>Reports</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="fm-login-card">
+            <h2>Welcome Back</h2>
+            <p>Login to open your dashboard</p>
+
+            @if (!string.IsNullOrWhiteSpace(Model.ErrorMessage))
+            {
+                <div class="login-error">@Model.ErrorMessage</div>
+            }
+
+            <form method="post">
+                <label>Username</label>
+                <input asp-for="Username" placeholder="Enter username" />
+
+                <label>Password</label>
+                <input asp-for="Password" type="password" placeholder="Enter password" />
+
+                <button type="submit" class="fm-login-btn">Login</button>
+            </form>
+
+            <small>Demo: admin / admin123</small>
+        </div>
+
+    </div>
+
+</body>
+</html>

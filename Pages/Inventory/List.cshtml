@@ -1,0 +1,49 @@
+@page
+@model FreshMartPortal.Pages.Inventory.ListModel
+@{
+    ViewData["Title"] = "Inventory";
+}
+
+<div class="panel">
+    <h1>Inventory Register</h1>
+
+    <a class="btn" asp-page="/Inventory/New">Add Product</a>
+
+    <br /><br />
+
+    <form method="get" action="/ProductSearch">
+        <input name="query" placeholder="Search by product, barcode, supplier, category..." />
+        <button class="btn">Search</button>
+    </form>
+</div>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Product</th>
+        <th>Barcode</th>
+        <th>Supplier</th>
+        <th>Category</th>
+        <th>Stock</th>
+        <th>Price</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td>@item.StockItemId</td>
+            <td>@item.ItemTitle</td>
+            <td>@item.Barcode</td>
+            <td>@item.BrandOrSupplier</td>
+            <td>@item.Department</td>
+            <td>@item.UnitsAvailable</td>
+            <td>£@item.UnitCost</td>
+
+            <td>
+                <a class="btn alt" asp-page="/Inventory/Edit" asp-route-id="@item.StockItemId">Edit</a>
+                <a class="btn danger" asp-page="/Inventory/Remove" asp-route-id="@item.StockItemId">Remove</a>
+            </td>
+        </tr>
+    }
+</table>

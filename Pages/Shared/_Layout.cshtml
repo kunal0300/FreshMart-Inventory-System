@@ -1,0 +1,46 @@
+@{
+    var isLoggedIn = Context.Session.GetString("UserLoggedIn") == "true";
+    var username = Context.Session.GetString("Username");
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FreshMart Portal</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+
+    @if (isLoggedIn)
+    {
+        <aside class="sidebar">
+
+            <h2>FreshMart</h2>
+
+            <a href="/Dashboard/Stats">Dashboard</a>
+            <a href="/Inventory/List">Inventory</a>
+            <a href="/Vendors/List">Vendors</a>
+            <a href="/Sales/New">New Sale</a>
+            <a href="/Sales/History">Sale History</a>
+            <a href="/Logout">Logout</a>
+
+        </aside>
+    }
+
+    <main class="content">
+
+        @if (isLoggedIn)
+        {
+            <div class="topbar">
+                Welcome, <strong>@username</strong>
+            </div>
+        }
+
+        @RenderBody()
+
+    </main>
+
+</body>
+</html>

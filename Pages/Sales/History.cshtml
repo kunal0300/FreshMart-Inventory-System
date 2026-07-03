@@ -1,0 +1,28 @@
+@page
+@model FreshMartPortal.Pages.Sales.HistoryModel
+@{
+    ViewData["Title"] = "Sale History";
+}
+
+<h1>Sale History</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Product</th>
+        <th>Quantity Sold</th>
+        <th>Total Price</th>
+        <th>Date</th>
+    </tr>
+
+    @foreach (var sale in Model.Sales)
+    {
+        <tr>
+            <td>@sale.CheckoutRecordId</td>
+            <td>@sale.ProductTitle</td>
+            <td>@sale.QuantitySold</td>
+            <td>£@sale.SalePrice</td>
+            <td>@sale.SaleDate.ToShortDateString()</td>
+        </tr>
+    }
+</table>

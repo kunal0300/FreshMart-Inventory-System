@@ -1,0 +1,39 @@
+@page "{id:int}"
+@model FreshMartPortal.Pages.Inventory.EditModel
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+<h1>Edit Product</h1>
+
+<form method="post" class="form-box">
+
+    <input type="hidden" asp-for="Entry.StockItemId" />
+
+    <label>Product Title</label>
+    <input asp-for="Entry.ItemTitle" />
+
+    <label>Barcode</label>
+    <input asp-for="Entry.Barcode" />
+
+    <label>Brand / Supplier</label>
+    <input asp-for="Entry.BrandOrSupplier" />
+
+    <label>Category</label>
+    <input asp-for="Entry.Department" />
+
+    <label>Expiry / Restock Date</label>
+    <input asp-for="Entry.ExpiryOrRestockDate" type="date" />
+
+    <label>Price</label>
+    <input asp-for="Entry.UnitCost" />
+
+    <label>Quantity</label>
+    <input asp-for="Entry.UnitsAvailable" />
+
+    <label>Low Stock Alert</label>
+    <input asp-for="Entry.ReorderPoint" />
+
+    <br />
+    <button class="btn" type="submit">Update Product</button>
+</form>

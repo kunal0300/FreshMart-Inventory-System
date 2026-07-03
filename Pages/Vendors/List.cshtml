@@ -1,0 +1,33 @@
+@page
+@model FreshMartPortal.Pages.Vendors.ListModel
+@{
+    ViewData["Title"] = "Suppliers";
+}
+
+<div class="panel">
+    <h1>Supplier Directory</h1>
+    <a class="btn" href="/Vendors/New">Add Supplier</a>
+</div>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Supplier Name</th>
+        <th>Contact Person</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Supply Category</th>
+    </tr>
+
+    @foreach (var vendor in Model.Vendors)
+    {
+        <tr>
+            <td>@vendor.VendorProfileId</td>
+            <td>@vendor.VendorName</td>
+            <td>@vendor.ContactPerson</td>
+            <td>@vendor.PhoneNumber</td>
+            <td>@vendor.EmailAddress</td>
+            <td>@vendor.SupplyCategory</td>
+        </tr>
+    }
+</table>
